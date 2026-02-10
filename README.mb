@@ -1,0 +1,59 @@
+	----Astrodat Observer Pro----
+A lightweight Python desktop application designed for amateur astronomers to log, manage, and search celestial observations. The project demonstrates N-tier architecture, clean code principles, and automated testing.
+
+	Features
+Observation Logging: Create detailed logs including object names, dates, equipment used, and descriptive notes.
+
+Persistent Storage: Utilizes SQLite for local data persistence with integrity constraints to prevent duplicate entries.
+
+Search Engine: Integrated SQL-based search functionality to filter observations by object name or notes.
+
+Dynamic UI: Built with CustomTkinter for a modern, responsive dark-mode interface.
+
+Separation of Concerns: Distinct layers for User Interface, Service Logic, and Data Access.
+
+	Architecture
+The application follows a structured architectural pattern:
+
+Presentation Layer (AstroDat.py): Handles UI rendering and user event capture using the CustomTkinter framework.
+
+Service Layer (ObservationService.py): Contains business logic, input validation, and acts as a mediator between the UI and the Database.
+
+Data Access Layer (Database_code.py): Manages raw SQL execution, database connection lifecycle, and CRUD operations.
+
+	Technical Stack
+Language: Python 3.x
+
+GUI Framework: CustomTkinter
+
+Database: SQLite3
+
+Testing: Unittest
+
+	Installation
+Clone the repository:
+git clone 
+
+Install the required dependencies:
+pip install customtkinter
+
+	Run the application:
+python AstroDat.py
+
+	Testing
+The project includes a comprehensive test suite that utilizes an in-memory SQLite database for speed and isolation. To execute the tests, run:
+
+python test_astrodat.py
+
+The test suite covers:
+
+Successful and failed observation creation.
+
+Data validation and constraint enforcement.
+
+Search query accuracy.
+
+Performance stress testing with 1,000+ records.
+
+	License
+This project is open-source and available under the MIT License.
