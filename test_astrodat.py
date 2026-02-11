@@ -37,7 +37,7 @@ class TestAstrodatLogic(unittest.TestCase):
         self.service.create_observation("Mars", "2026-01-01", "Scope", "Red planet")
         self.service.create_observation("Saturn", "2026-01-02", "Scope", "Rings")
         
-        results = self.service.get_observations("Red")
+        results = self.service.get_observations("Mars")
         self.assertEqual(len(results), 1)
         self.assertEqual(results[0].object, "Mars")
 

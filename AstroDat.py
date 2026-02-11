@@ -116,6 +116,7 @@ class AstrodatApp(tk.CTk):
             child.destroy()
         
         observations = self.service.get_observations(filter_text)
+        
         for obs in observations:
             obs_str = f"{obs.object} | {obs.date}"
             card = tk.CTkFrame(self.scroll_frame, fg_color="#1A1C1E", corner_radius=15, border_width=1, border_color="#012D29", cursor="hand2")

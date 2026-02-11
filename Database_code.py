@@ -1,7 +1,6 @@
 import sqlite3
-from collections import namedtuple
+from models import ObservationDTO
 
-Observation = namedtuple('Observation', ['id', 'object', 'date', 'equipment', 'note'])
 
 class DatabaseManager:
 
@@ -33,7 +32,10 @@ class DatabaseManager:
 
     def get_all_observations(self):
         cursor = self.conn.execute("SELECT * FROM astrodata")
-        return [Observation(*row) for row in cursor.fetchall()]
+        return [
+            ObservationDTO(id=row[0], object=row[1], date=row[2], equipment=row[3], note=row[4]) 
+            for row in cursor.fetchall()
+        ]
 
     def delete_observation(self, obs_id):
         self.conn.execute("DELETE FROM astrodata WHERE id = ?", (obs_id,))
@@ -44,7 +46,10 @@ class DatabaseManager:
             "SELECT * FROM astrodata WHERE object LIKE ? OR date LIKE ?", 
             (f'%{term}%', f'%{term}%')
         )
-        return [Observation(*row) for row in cursor.fetchall()]
+        return [
+            ObservationDTO(id=row[0], object=row[1], date=row[2], equipment=row[3], note=row[4]) 
+                for row in cursor.fetchall()
+        ]
     
     def __del__(self):
         self.conn.close()
