@@ -30,6 +30,8 @@ Database: SQLite3
 
 Testing: Unittest
 
+Screenshots
+![Screenshot](https://github.com/MarseloBogdani/AstroDat-Observer-Pro/blob/main/imag1.PNG)
 	Installation
 Clone the repository:
 git clone 
